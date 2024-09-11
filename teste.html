@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Responsivo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E6E6FA;
+            color: #333;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 15px;
+            width: 90%;
+            max-width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        .card .content {
+            padding: 15px;
+        }
+        .card .content h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .card .content p {
+            font-size: 14px;
+            color: #666;
+        }
+        .card .content a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .card .tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #00ffcc;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .floating-button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .floating-button.chatbot {
+            background-color: #FF4500;
+        }
+
+        /* Estilo do menu flutuante */
+        #chatbot-menu {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #6A0DAD;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-align: center;
+        }
+        #chatbot-menu button {
+            margin-top: 10px;
+            background-color: #fff;
+            color: #6A0DAD;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        #chatbot-menu button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="tag">ESTUDO</div>
+            <img src="imagem1.jpg" alt="Guia Programador de Sucesso">
+            <div class="content">
+                <h3>Guia Programador de Sucesso</h3>
+                <p>Um local para assistir minhas principais dicas em um único local de fácil acesso!</p>
+                <a href="#">SAIBA MAIS →</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">PRODUTIVIDADE</div>
+            <img src="imagem2.jpg" alt="Kindle">
+            <div class="content">
+                <h3>Kindle</h3>
+                <p>O Kindle é o leitor digital que me permitiu ler mais dezenas de livros e evoluir 10x mais rápido.</p>
+                <a href="#">SAIBA MAIS →</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">PRODUTIVIDADE</div>
+            <img src="imagem3.jpg" alt="Notion">
+            <div class="content">
+                <h3>Notion</h3>
+                <p>Organizo minha vida inteira nessa ferramenta. Simplesmente não sei como viver sem ela.</p>
+                <a href="#">SAIBA MAIS →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-buttons">
+        <button class="floating-button whatsapp" onclick="window.open('https://wa.me/SEU_NUMERO', '_blank')">W</button>
+        <button class="floating-button chatbot" onclick="showChatbotMenu()">🤖</button>
+    </div>
+
+    <!-- Menu flutuante personalizado -->
+    <div id="chatbot-menu">
+        <h2>Escolha uma opção</h2>
+        <button onclick="navigateTo('./cursos/html.html')">Estudar HTML</button>
+        <button onclick="navigateTo('./cursos/css.html')">Estudar CSS</button>
+        <button onclick="navigateTo('./cursos/javascript.html')">Estudar JavaScript</button>
+        <button onclick="navigateTo('./aulas.html')">Aulas</button>
+        <button onclick="closeChatbotMenu()">Fechar</button>
+    </div>
+
+    <script>
+        // Função para exibir o menu
+        function showChatbotMenu() {
+            document.getElementById('chatbot-menu').style.display = 'block';
+        }
+
+        // Função para fechar o menu
+        function closeChatbotMenu() {
+            document.getElementById('chatbot-menu').style.display = 'none';
+        }
+
+        // Função para navegação
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
